@@ -27,8 +27,13 @@ export const questions = [
   {
     id: "price",
     text: "What was the final purchase price",
-    type: "input",
-    config: { inputType: "number" },
+    type: "slider",
+    config: {
+      min: 10000,
+      max: 30000,
+      step: 1000,
+      marks: { "1000": "1000", "2000": "2000", "3000": "3000" }
+    },
     defaultValue: 16200,
     onAnswer: value => ({
       price: value,
@@ -38,7 +43,7 @@ export const questions = [
   {
     id: "mileage",
     text: "What is your yearly mileage",
-    type: "input",
+    type: "slider",
     config: {
       min: 15000,
       max: 80000,
@@ -49,7 +54,12 @@ export const questions = [
   {
     id: "period",
     text: "What is your car operation period",
-    type: "input",
+    type: "slider",
+    config: {
+      min: 1,
+      max: 10,
+      step: 1
+    },
     defaultValue: 5
   },
   {
@@ -67,16 +77,23 @@ export const questions = [
   {
     id: "consumption",
     text: "Average fuel consumption",
-    type: "input",
+    type: "slider",
     config: {
-      inputType: "number"
+      min: 4,
+      max: 20,
+      step: 0.5
     },
     defaultValue: 11.0
   },
   {
     id: "insurance",
     text: "Yearly insurance costs",
-    type: "input",
+    type: "slider",
+    config: {
+      min: 0,
+      max: 1500,
+      step: 100
+    },
     defaultValue: 742
   },
   {
