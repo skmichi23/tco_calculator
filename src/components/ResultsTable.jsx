@@ -64,20 +64,16 @@ function ResultsTable(props) {
     )
   ];
 
+  console.log(data);
+
   return (
     <Paper>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>
-              {/* <Typography variant="subheading">TODO_SELECTED_CAR</Typography> */}
-              {/* <img alt="" src="https://placekitten.com/150/100" /> */}
-            </TableCell>
-            <TableCell>
-              {/* <Typography variant="subheading">Voltia Nissan</Typography> */}
-              {/* <img alt="" src="https://placekitten.com/150/100" /> */}
-            </TableCell>
+            <TableCell>{data.car}</TableCell>
+            <TableCell>Voltia Nissan</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

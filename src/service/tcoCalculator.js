@@ -366,6 +366,7 @@ export default ({
     evServicePct;
 
   return {
+    car: car,
     operationPeriod: period,
     totalKm: period * mileage,
     savings: savings,

@@ -42,7 +42,6 @@ export default class extends React.Component {
   };
 
   onAnswer = question => event => {
-    console.log(event.target.value);
     let updatedState;
     if (question.onAnswer) {
       updatedState = question.onAnswer(event.target.value);
