@@ -134,9 +134,27 @@ const MONTHS = 12;
  * calc methods
  */
 
+function getResidualValue(totalKm) {
+  if (RESIDUAL[totalKm]) {
+    return RESIDUAL[totalKm];
+  } else {
+    if (totalKm < 60000) {
+      console.log(
+        "No residual value for " + totalKm + ", returning lowest value"
+      );
+      return RESIDUAL["60000"];
+    } else {
+      console.log(
+        "No residual value for " + totalKm + ", returning highest value"
+      );
+      return RESIDUAL["500000"];
+    }
+  }
+}
+
 function calcDepreciation(price, years, kmYear, type) {
   const totalKm = years * kmYear;
-  let residualVal = RESIDUAL[totalKm][type];
+  let residualVal = getResidualValue(totalKm)[type];
 
   return roundTo(
     (1 - residualVal * calcDiscountRateInMaturity(years)) * price,
@@ -154,7 +172,9 @@ function roundTo(number, decimalCount) {
 }
 
 function calcCostOfFinance(period, price, mileage, type) {
-  const residual = RESIDUAL[period * mileage][type] * price;
+  const totalKm = period * mileage;
+
+  const residual = getResidualValue(totalKm)[type] * price;
   const pmt = PMT(INTEREST_RATE / MONTHS, period * MONTHS, price, -residual);
   return roundTo(
     period * MONTHS * pmt * -1 - calcDepreciation(price, period, mileage, type),
@@ -308,7 +328,8 @@ export default ({
   const savings = roundTo(1 - 1 / (convPerKm / evPerKm), 2) * 100;
   const trees = ((mileage * period * 250) / 1000000) * 6;
 
-  const evTotalWithSubsidy = evTotal + subsidy + subsidy;
+  const evTotalWithSubsidy = evTotal + subsidy * 2;
+  console.log(evTotal);
   const convDepreciationPct = Math.round((convDepreciation / convTotal) * 100);
   const evDepreciationPct = Math.round(
     (evDepreciation / evTotalWithSubsidy) * 100
@@ -328,6 +349,14 @@ export default ({
     convFinancePct -
     convFuelPct -
     convServicePct;
+
+  console.log(
+    evDepreciationPct,
+    evSubsidyPct,
+    evFinancePct,
+    evFuelPct,
+    evServicePct
+  );
   const evInsurancePct =
     100 -
     evDepreciationPct -

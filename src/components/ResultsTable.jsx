@@ -118,14 +118,14 @@ function ResultsTable(props) {
             <TableCell component="th" scope="row" />
             <TableCell>
               <center>
-                <div style={{ width: 250, height: 250 }}>
+                <div style={{ width: 200, height: 200 }}>
                   <ResultChart data={data} dataIndex={0} showLegend={false} />
                 </div>
               </center>
             </TableCell>
             <TableCell>
               <center>
-                <div style={{ width: 250, height: 250 }}>
+                <div style={{ width: 200, height: 200 }}>
                   <ResultChart data={data} dataIndex={1} showLegend={false} />
                 </div>
               </center>
