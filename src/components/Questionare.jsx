@@ -1,7 +1,7 @@
 import React from "react";
 import Question from "./Question.jsx";
 import { questions } from "../store";
-import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core";
 
 function initState() {
@@ -51,7 +51,7 @@ class Questionare extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Paper className={classes.root} elevation={1}>
+      <div>
         {questions.map(question => (
           <div key={question.id}>
             <Question
@@ -62,10 +62,12 @@ class Questionare extends React.Component {
             />
           </div>
         ))}
-        <button onClick={() => this.props.onSubmit(this.state.answers)}>
-          abcd
-        </button>
-      </Paper>
+        <center>
+          <Button onClick={() => this.props.onSubmit(this.state.answers)}>
+            Calculate
+          </Button>
+        </center>
+      </div>
     );
   }
 }

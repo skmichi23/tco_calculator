@@ -26,13 +26,14 @@ export const questions = [
   },
   {
     id: "price",
-    text: "What was the final purchase price",
+    text: "What was the final purchase price?",
     type: "slider",
     config: {
       min: 10000,
       max: 30000,
       step: 1000,
-      marks: { "1000": "1000", "2000": "2000", "3000": "3000" }
+      marks: { "1000": "1000", "2000": "2000", "3000": "3000" },
+      unit: "€"
     },
     defaultValue: 16200,
     onAnswer: value => ({
@@ -42,29 +43,31 @@ export const questions = [
   },
   {
     id: "mileage",
-    text: "What is your yearly mileage",
+    text: "What is your yearly mileage?",
     type: "slider",
     config: {
       min: 15000,
       max: 80000,
-      step: 5000
+      step: 5000,
+      unit: "km"
     },
     defaultValue: 20000
   },
   {
     id: "period",
-    text: "What is your car operation period",
+    text: "What is your car operation period?",
     type: "slider",
     config: {
       min: 1,
       max: 10,
-      step: 1
+      step: 1,
+      unit: "years"
     },
     defaultValue: 5
   },
   {
     id: "fuel",
-    text: "What fuel are you driving",
+    text: "What fuel are you driving?",
     type: "select",
     config: {
       options: [
@@ -81,8 +84,12 @@ export const questions = [
     config: {
       min: 4,
       max: 20,
-      step: 0.5
+      step: 0.1,
+      unit: "l/100km"
     },
+    onAnswer: value => ({
+      consumption: Math.round(value * 100) / 100
+    }),
     defaultValue: 11.0
   },
   {
@@ -92,13 +99,14 @@ export const questions = [
     config: {
       min: 0,
       max: 1500,
-      step: 100
+      step: 100,
+      unit: "€"
     },
     defaultValue: 742
   },
   {
     id: "subsidy",
-    text: "Government subsidy",
+    text: "Government subsidy?",
     type: "input",
     defaultValue: 7000
   },

@@ -8,6 +8,7 @@
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",
     "@material-ui/lab": "^3.0.0-alpha.15",
+    "@nivo/pie": "^0.49.0",
     "rc-slider": "^8.6.2",
     "react": "16.4.2",
     "react-dom": "16.4.2",

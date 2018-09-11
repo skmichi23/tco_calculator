@@ -3,6 +3,15 @@ import Questionare from "./Questionare.jsx";
 import Report from "./Report.jsx";
 import tcoCalculator from "../service/tcoCalculator";
 
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import lightGreen from "@material-ui/core/colors/lightGreen";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: lightGreen
+  }
+});
+
 export default class extends React.Component {
   constructor(props) {
     super(props);
@@ -21,10 +30,10 @@ export default class extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <MuiThemeProvider theme={theme}>
         <Questionare onSubmit={this.onQuestionareSubmit} />
         {this.state.report ? <Report report={this.state.report} /> : null}
-      </React.Fragment>
+      </MuiThemeProvider>
     );
   }
 }
