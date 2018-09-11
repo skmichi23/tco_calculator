@@ -4,4 +4,4 @@ import App from "./components/App";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-//some comment
+//some comment and some other comment
