@@ -17,14 +17,14 @@ export default ({ question, onAnswer, onSliderChange, value }) => {
             return (
               // <Card>
               <Grid container>
-                <Grid item xs="12" md="6">
+                <Grid item xs={12} md={6}>
                   <CardContent>
                     <Typography variant="subheading" component="h2">
                       {question.text}
                     </Typography>
                   </CardContent>
                 </Grid>
-                <Grid item xs="12" md="6">
+                <Grid item xs={12} md={6}>
                   <CardContent>
                     <TextInput
                       question={question}
@@ -40,14 +40,14 @@ export default ({ question, onAnswer, onSliderChange, value }) => {
             return (
               // <Card>
               <Grid container>
-                <Grid item xs="12" md="6">
+                <Grid item xs={12} md={6}>
                   <CardContent>
                     <Typography variant="subheading" component="h2">
                       {question.text}
                     </Typography>
                   </CardContent>
                 </Grid>
-                <Grid item xs="12" md="6">
+                <Grid item xs={12} md={6}>
                   <CardContent>
                     <SelectInput2
                       question={question}
@@ -63,14 +63,14 @@ export default ({ question, onAnswer, onSliderChange, value }) => {
             return (
               // <Card>
               <Grid container>
-                <Grid item xs="12" md="6">
+                <Grid item xs="12" md={6}>
                   <CardContent>
                     <Typography variant="subheading" component="h2">
                       {question.text}
                     </Typography>
                   </CardContent>
                 </Grid>
-                <Grid item xs="12" md="6">
+                <Grid item xs={12} md={6}>
                   <CardContent>
                     <center>
                       <Typography id="label">
