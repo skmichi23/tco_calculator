@@ -2,6 +2,8 @@ import React from "react";
 import Question from "./Question.jsx";
 import { questions } from "../store";
 import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core";
 
 function initState() {
@@ -51,23 +53,29 @@ class Questionare extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
-        {questions.map(question => (
-          <div key={question.id}>
-            <Question
-              onAnswer={this.onAnswer(question)}
-              onSliderChange={this.onSliderChange(question)}
-              value={this.state.answers[question.id]}
-              question={question}
-            />
-          </div>
-        ))}
-        <center>
-          <Button onClick={() => this.props.onSubmit(this.state.answers)}>
-            Calculate
-          </Button>
-        </center>
-      </div>
+      <React.Fragment>
+        <Typography variant="headline">
+          Cost of Ownership Questionare
+        </Typography>
+
+        <Paper>
+          {questions.map(question => (
+            <div key={question.id}>
+              <Question
+                onAnswer={this.onAnswer(question)}
+                onSliderChange={this.onSliderChange(question)}
+                value={this.state.answers[question.id]}
+                question={question}
+              />
+            </div>
+          ))}
+          <center>
+            <Button onClick={() => this.props.onSubmit(this.state.answers)}>
+              Calculate
+            </Button>
+          </center>
+        </Paper>
+      </React.Fragment>
     );
   }
 }

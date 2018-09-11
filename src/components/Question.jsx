@@ -15,80 +15,80 @@ export default ({ question, onAnswer, onSliderChange, value }) => {
         switch (question.type) {
           case "input":
             return (
-              <Card>
-                <Grid container>
-                  <Grid item xs="12" md="6">
-                    <CardContent>
-                      <Typography variant="subheading" component="h2">
-                        {question.text}
-                      </Typography>
-                    </CardContent>
-                  </Grid>
-                  <Grid item xs="12" md="6">
-                    <CardContent>
-                      <TextInput
-                        question={question}
-                        value={value}
-                        onAnswer={onAnswer}
-                      />
-                    </CardContent>
-                  </Grid>
+              // <Card>
+              <Grid container>
+                <Grid item xs="12" md="6">
+                  <CardContent>
+                    <Typography variant="subheading" component="h2">
+                      {question.text}
+                    </Typography>
+                  </CardContent>
                 </Grid>
-              </Card>
+                <Grid item xs="12" md="6">
+                  <CardContent>
+                    <TextInput
+                      question={question}
+                      value={value}
+                      onAnswer={onAnswer}
+                    />
+                  </CardContent>
+                </Grid>
+              </Grid>
+              // </Card>
             );
           case "select":
             return (
-              <Card>
-                <Grid container>
-                  <Grid item xs="12" md="6">
-                    <CardContent>
-                      <Typography variant="subheading" component="h2">
-                        {question.text}
-                      </Typography>
-                    </CardContent>
-                  </Grid>
-                  <Grid item xs="12" md="6">
-                    <CardContent>
-                      <SelectInput2
-                        question={question}
-                        value={value}
-                        onAnswer={onAnswer}
-                      />
-                    </CardContent>
-                  </Grid>
+              // <Card>
+              <Grid container>
+                <Grid item xs="12" md="6">
+                  <CardContent>
+                    <Typography variant="subheading" component="h2">
+                      {question.text}
+                    </Typography>
+                  </CardContent>
                 </Grid>
-              </Card>
+                <Grid item xs="12" md="6">
+                  <CardContent>
+                    <SelectInput2
+                      question={question}
+                      value={value}
+                      onAnswer={onAnswer}
+                    />
+                  </CardContent>
+                </Grid>
+              </Grid>
+              // </Card>
             );
           case "slider":
             return (
-              <Card>
-                <Grid container>
-                  <Grid item xs="12" md="6">
-                    <CardContent>
-                      <Typography variant="subheading" component="h2">
-                        {question.text}
-                      </Typography>
-                    </CardContent>
-                  </Grid>
-                  <Grid item xs="12" md="6">
-                    <CardContent>
-                      <center>
-                        <Typography id="label">
-                          {value} {question.config.unit}
-                        </Typography>
-                      </center>
-                      <Slider
-                        min={question.config.min}
-                        max={question.config.max}
-                        onChange={onSliderChange}
-                        step={question.config.step}
-                        value={value}
-                        marks={question.config.marks}
-                      />
-                    </CardContent>
-                  </Grid>
+              // <Card>
+              <Grid container>
+                <Grid item xs="12" md="6">
+                  <CardContent>
+                    <Typography variant="subheading" component="h2">
+                      {question.text}
+                    </Typography>
+                  </CardContent>
                 </Grid>
-              </Card>
+                <Grid item xs="12" md="6">
+                  <CardContent>
+                    <center>
+                      <Typography id="label">
+                        {value} {question.config.unit}
+                      </Typography>
+                    </center>
+                    <Slider
+                      min={question.config.min}
+                      max={question.config.max}
+                      onChange={onSliderChange}
+                      step={question.config.step}
+                      value={value}
+                      marks={question.config.marks}
+                    />
+                  </CardContent>
+                </Grid>
+              </Grid>
+              // </Card>
             );
           default:
             return null;

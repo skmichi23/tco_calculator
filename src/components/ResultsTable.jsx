@@ -6,8 +6,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { Typography } from "@material-ui/core";
 import ResultChart from "./ResultChart";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({});
 
@@ -18,7 +18,7 @@ function createData(name, price1, price2) {
 }
 
 function ResultsTable(props) {
-  const { data } = props;
+  const { data, onModify } = props;
 
   const rows = [
     createData(
@@ -133,6 +133,9 @@ function ResultsTable(props) {
           </TableRow>
         </TableBody>
       </Table>
+      <center>
+        <Button onClick={onModify}>Modify</Button>
+      </center>
     </Paper>
   );
 }

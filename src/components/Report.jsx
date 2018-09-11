@@ -11,11 +11,11 @@ const styles = theme => ({
   }
 });
 
-function Report({ report, classes }) {
+function Report({ report, onModify }) {
   return (
     <React.Fragment>
       <Typography variant="headline">Total Cost of Ownership Report</Typography>
-      <ResultsTable data={report} />
+      <ResultsTable data={report} onModify={onModify} />
     </React.Fragment>
   );
 }

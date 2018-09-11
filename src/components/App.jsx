@@ -28,11 +28,19 @@ export default class extends React.Component {
     this.setState({ report });
   };
 
+  onModify = () => {
+    this.setState({ report: null });
+  };
+
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <Questionare onSubmit={this.onQuestionareSubmit} />
-        {this.state.report ? <Report report={this.state.report} /> : null}
+        {!this.state.report ? (
+          <Questionare onSubmit={this.onQuestionareSubmit} />
+        ) : null}
+        {this.state.report ? (
+          <Report report={this.state.report} onModify={this.onModify} />
+        ) : null}
       </MuiThemeProvider>
     );
   }
