@@ -63,7 +63,7 @@ export default ({ question, onAnswer, onSliderChange, value }) => {
             return (
               // <Card>
               <Grid container>
-                <Grid item xs="12" md={6}>
+                <Grid item xs={12} md={6}>
                   <CardContent>
                     <Typography variant="subheading" component="h2">
                       {question.text}
