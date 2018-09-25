@@ -2,7 +2,6 @@ import React from "react";
 import TextInput from "./inputs/TextInput";
 import SelectInput2 from "./inputs/SelectInput2";
 
-import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/lab/Slider";

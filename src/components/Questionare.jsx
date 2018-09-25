@@ -1,13 +1,8 @@
 import React from "react";
 import Question from "./Question.jsx";
-import Button from "@material-ui/core/Button";
 import CalculateButton from "./inputs/CalculateButton";
 
 export default class Questionare extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <React.Fragment>

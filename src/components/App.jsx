@@ -33,13 +33,15 @@ export default class extends React.Component {
     //get response with TCO data
     //set response data to the state
 
+    console.log(this.state.answers);
+
     const report = tcoCalculator(this.state.answers);
-    console.log(report);
     this.setState({ report });
   };
 
   onModify = () => {
     this.setState({ report: null });
+    window.scrollTo(0, 0);
   };
 
   onItemSelect = question => value => {
@@ -51,6 +53,7 @@ export default class extends React.Component {
     let updatedState;
     if (question.onAnswer) {
       updatedState = question.onAnswer(event.target.value);
+      console.log(updatedState);
     } else {
       updatedState = { [question.id]: event.target.value };
     }

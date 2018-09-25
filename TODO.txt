@@ -1,7 +1,9 @@
 TCO kalkulacka TODO
 -------------------------------------
 TODO:
-
+- nove prepocty z excelu
+- build config (env config)
+- 
 
 
 

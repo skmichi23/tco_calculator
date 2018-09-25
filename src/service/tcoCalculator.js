@@ -1,3 +1,5 @@
+import { getCarById } from "../store";
+
 const DISCOUNT_RATE = 0.02;
 const RESIDUAL = {
   "60000": [0.55, 0.62],
@@ -264,6 +266,7 @@ function PMT(ir, np, pv, fv) {
 
 export default ({
   car,
+  carName,
   price,
   mileage,
   period,
@@ -329,7 +332,6 @@ export default ({
   const trees = ((mileage * period * 250) / 1000000) * 6;
 
   const evTotalWithSubsidy = evTotal + subsidy * 2;
-  console.log(evTotal);
   const convDepreciationPct = Math.round((convDepreciation / convTotal) * 100);
   const evDepreciationPct = Math.round(
     (evDepreciation / evTotalWithSubsidy) * 100
@@ -350,13 +352,6 @@ export default ({
     convFuelPct -
     convServicePct;
 
-  console.log(
-    evDepreciationPct,
-    evSubsidyPct,
-    evFinancePct,
-    evFuelPct,
-    evServicePct
-  );
   const evInsurancePct =
     100 -
     evDepreciationPct -
@@ -367,6 +362,7 @@ export default ({
 
   return {
     car: car,
+    carName: getCarById(car).name,
     operationPeriod: period,
     totalKm: period * mileage,
     savings: savings,

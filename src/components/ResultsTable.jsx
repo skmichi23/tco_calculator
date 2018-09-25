@@ -65,7 +65,8 @@ const styles = theme => ({
   },
   imgPaper: {
     textAlign: "center",
-    marginLeft: 10
+    marginLeft: 10,
+    height: 180
   }
 });
 
@@ -76,7 +77,7 @@ function createData(name, price1, price2) {
 }
 
 function ResultsTable(props) {
-  const { data, onModify, classes } = props;
+  const { data, classes } = props;
 
   const rows = [
     createData(
@@ -123,24 +124,32 @@ function ResultsTable(props) {
     data.comparison["perkm"][1]
   );
 
-  console.log(data);
-
   return (
     <React.Fragment>
       <table className={classes.imgTable}>
-        <tr>
-          <td className={classes.imgColInvisi} />
-          <td className={classes.imgCol}>
-            <Paper className={classes.imgPaper}>
-              <img src={"./images/cars/" + data.car + ".jpg"} />
-            </Paper>
-          </td>
-          <td className={classes.imgCol}>
-            <Paper className={classes.imgPaper}>
-              <img src="./images/cars/voltia.jpg" />
-            </Paper>
-          </td>
-        </tr>
+        <thead>
+          <tr>
+            <td className={classes.imgColInvisi} />
+            <td className={classes.imgCol}>
+              <Paper className={classes.imgPaper}>
+                <img
+                  alt=""
+                  style={{ height: "100%" }}
+                  src={"./images/cars/" + data.car + ".jpg"}
+                />
+              </Paper>
+            </td>
+            <td className={classes.imgCol}>
+              <Paper className={classes.imgPaper}>
+                <img
+                  alt=""
+                  style={{ height: "100%" }}
+                  src="./images/cars/voltia.jpg"
+                />
+              </Paper>
+            </td>
+          </tr>
+        </thead>
       </table>
       <Paper className={classes.root}>
         <Table className={classes.table}>
@@ -151,7 +160,7 @@ function ResultsTable(props) {
               </CustomTableCell>
               <CustomTableCell className={classes.fillerCol} />
               <CustomTableCell className={classes.dataCol}>
-                {data.car}
+                {data.carName}
               </CustomTableCell>
               <CustomTableCell className={classes.fillerCol} />
               <CustomTableCell className={classes.fillerCol} />

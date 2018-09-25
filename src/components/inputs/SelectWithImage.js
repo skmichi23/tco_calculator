@@ -25,42 +25,47 @@ const styles = {
 function SelectWithImage({ classes, value, onAnswer, question }) {
   return (
     <table cellPadding={0} cellSpacing={0} className="question">
-      <tr>
-        <th colspan="2">{question.text}</th>
-      </tr>
-      <tr>
-        <td>
-          <Grid
-            className={classes.grid}
-            container
-            justify="space-between"
-            alignItems="center"
-            direction="row"
-          >
-            <Grid item>
-              <Select
-                onChange={onAnswer}
-                className={classes.select}
-                value={value}
-              >
-                {question.config.options.map(option => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.title}
-                  </MenuItem>
-                ))}
-              </Select>
+      <thead>
+        <tr>
+          <th colSpan="2">{question.text}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <Grid
+              className={classes.grid}
+              container
+              justify="space-between"
+              alignItems="center"
+              direction="row"
+            >
+              <Grid item>
+                <Select
+                  onChange={onAnswer}
+                  className={classes.select}
+                  value={value}
+                >
+                  {question.config.options.map(option => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.title}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </Grid>
+              <Grid item>
+                <Paper className={classes.paper}>
+                  <img
+                    alt=""
+                    className="select-image"
+                    src={"./images/cars/" + value + ".jpg"}
+                  />
+                </Paper>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Paper className={classes.paper}>
-                <img
-                  class="select-image"
-                  src={"./images/cars/" + value + ".jpg"}
-                />
-              </Paper>
-            </Grid>
-          </Grid>
-        </td>
-      </tr>
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 }

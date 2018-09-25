@@ -19,7 +19,7 @@ export const questions = [
     },
     onAnswer: value => ({
       car: getCarById(value).id,
-      price: parseInt(getCarById(value).price),
+      price: parseInt(getCarById(value).price, 10),
       insurance: Math.round(getCarById(value).price * 0.035)
     }),
     defaultValue: "citroen_jumper"
@@ -129,10 +129,6 @@ export const questions = [
   }
 ];
 
-function getCarByName(name) {
-  return cars.filter(car => car.name === name)[0];
-}
-
-function getCarById(id) {
+export function getCarById(id) {
   return cars.filter(car => car.id === id)[0];
 }
