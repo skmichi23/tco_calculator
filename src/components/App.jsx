@@ -4,6 +4,7 @@ import Report from "./Report.jsx";
 import tcoCalculator from "../service/tcoCalculator";
 import { questions } from "../store";
 
+import "rc-slider/assets/index.css";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import lightGreen from "@material-ui/core/colors/lightGreen";
 
@@ -41,6 +42,11 @@ export default class extends React.Component {
     this.setState({ report: null });
   };
 
+  onItemSelect = question => value => {
+    let updatedState = { [question.id]: value };
+    this.setState({ answers: { ...this.state.answers, ...updatedState } });
+  };
+
   onAnswer = question => event => {
     let updatedState;
     if (question.onAnswer) {
@@ -51,7 +57,7 @@ export default class extends React.Component {
     this.setState({ answers: { ...this.state.answers, ...updatedState } });
   };
 
-  onSliderChange = question => (event, value) => {
+  onSliderChange = question => value => {
     let updatedState;
     if (question.onAnswer) {
       updatedState = question.onAnswer(value);
@@ -70,6 +76,7 @@ export default class extends React.Component {
             onSubmit={this.onQuestionareSubmit}
             onAnswer={this.onAnswer}
             onSliderChange={this.onSliderChange}
+            onItemSelect={this.onItemSelect}
             answers={this.state.answers}
             questions={questions}
           />

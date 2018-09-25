@@ -1,8 +1,7 @@
 import React from "react";
 import Question from "./Question.jsx";
 import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+import CalculateButton from "./inputs/CalculateButton";
 
 export default class Questionare extends React.Component {
   constructor(props) {
@@ -12,25 +11,21 @@ export default class Questionare extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Typography variant="headline">
-          Cost of Ownership Questionare
-        </Typography>
+        <h1>TOTAL COST OF OWNERSHIP</h1>
+        <h2>CALCULATOR</h2>
 
-        <Paper>
-          {this.props.questions.map(question => (
-            <div key={question.id}>
-              <Question
-                onAnswer={this.props.onAnswer(question)}
-                onSliderChange={this.props.onSliderChange(question)}
-                value={this.props.answers[question.id]}
-                question={question}
-              />
-            </div>
-          ))}
-          <center>
-            <Button onClick={() => this.props.onSubmit()}>Calculate</Button>
-          </center>
-        </Paper>
+        {this.props.questions.map(question => (
+          <div key={question.id}>
+            <Question
+              onAnswer={this.props.onAnswer(question)}
+              onSliderChange={this.props.onSliderChange(question)}
+              onItemSelect={this.props.onItemSelect(question)}
+              value={this.props.answers[question.id]}
+              question={question}
+            />
+          </div>
+        ))}
+        <CalculateButton onClick={() => this.props.onSubmit()} />
       </React.Fragment>
     );
   }

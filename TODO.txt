@@ -1,0 +1,14 @@
+TCO kalkulacka TODO
+-------------------------------------
+TODO:
+
+
+
+
+
+DONE:
+- zobrazenie vybraneho auta v popise tabulky
+- fixnut aby pri vela km x rokoch nepadol vypocet
+- stav odpovedi dostat do App aby prezil aj skrytie komponentu
+- bug ked je insurance 100%
+

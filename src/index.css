@@ -1,0 +1,191 @@
+#root {
+  max-width: 1000px;
+  margin: 50px auto;
+  font-family: "Roboto", sans-serif;
+}
+
+#root h1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 900;
+  background: -webkit-linear-gradient(0deg, #abcc68, #36793a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+#root h2 {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 900;
+  color: black;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/** question table **/
+table.question {
+  border: 1px solid #dedfe0;
+  border-radius: 3px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+table.question th {
+  background-color: #f6f7f8;
+  border-bottom: 1px solid #dedfe0;
+  padding: 10px 30px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: normal;
+  color: #323334;
+}
+
+table.question td.left {
+  padding-top: 10px;
+  padding-left: 20px;
+  width: 33%;
+  text-align: left;
+  color: #323334;
+}
+
+table.question td.center {
+  padding-top: 10px;
+  width: 33%;
+  text-align: center;
+  font-size: 22px;
+  color: #7fb14f;
+}
+
+table.question td.right {
+  padding-top: 10px;
+  padding-right: 20px;
+  width: 33%;
+  text-align: right;
+  color: #323334;
+}
+
+/** slider **/
+.slider-wrapper {
+  margin: 20px;
+}
+
+/** stepper **/
+.stepper-wrapper {
+  max-width: 400px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.stepper {
+  width: 50%;
+  margin: 20px;
+}
+
+.stepper-button {
+  margin-top: 5px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  text-align: center;
+  outline: none;
+  border: none;
+  background-color: #7fb14f;
+}
+
+.stepper-button-icon {
+  color: white;
+}
+
+/** select with img **/
+img.select-image {
+  margin: 10px;
+  max-width: 300px;
+}
+
+/** choose **/
+ol.choose {
+  margin: 0;
+  padding: 0;
+}
+ol.choose li {
+  border: 0;
+  border-bottom: 1px solid #dedfe0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+ol.choose li span.letter {
+  color: #7c7d7e;
+  margin-right: 5px;
+}
+
+ol.choose li.chosen span.letter {
+  color: white;
+}
+
+ol.choose li.chosen {
+  background-color: #7fb14f;
+  color: white;
+}
+
+ol.choose li p {
+  padding: 20px;
+  margin: 0;
+}
+
+ol.choose li:last-child {
+  border: 0;
+}
+
+.choose-checked {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+/** calculate button **/
+button.calculate {
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  font-size: 18px;
+  border: 0;
+  background-color: #7fb14f;
+  color: white;
+  outline: none;
+}
+
+button.calculate:hover {
+  cursor: pointer;
+}
+
+/** slider **/
+.my-slider .rc-slider-handle:focus {
+  border-color: #7fb14f;
+  -webkit-box-shadow: 0 0 0 5px #7fb14f;
+  box-shadow: 0 0 0 5px #7fb14f;
+  outline: none;
+}
+
+.my-slider .rc-slider-handle-click-focused:focus {
+  border-color: #7fb14f;
+  box-shadow: unset;
+}
+
+.my-slider .rc-slider-handle:hover {
+  border-color: #7fb14f;
+}
+.my-slider .rc-slider-handle:active {
+  border-color: #7fb14f;
+  box-shadow: 0 0 5px #7fb14f;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}

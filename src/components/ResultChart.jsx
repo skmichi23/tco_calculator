@@ -45,47 +45,32 @@ function createData(data, index) {
 export default ({ data, dataIndex, showLegend }) => {
   const chartData = createData(data, dataIndex);
 
-  let legends = [];
-  if (showLegend) {
-    legends = [
-      {
-        anchor: "left",
-        direction: "column",
-        translateY: 0,
-        translateX: "-100",
-        itemWidth: 100,
-        itemHeight: 30,
-        itemTextColor: "#999",
-        symbolSize: 18,
-        symbolShape: "circle"
-      }
-    ];
-  }
-
   return (
-    <ResponsivePie
-      data={chartData}
-      margin={{
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0
-      }}
-      innerRadius={0.0}
-      padAngle={0.7}
-      cornerRadius={3}
-      colors="nivo"
-      colorBy="id"
-      borderWidth={1}
-      borderColor="inherit:darker(0.2)"
-      enableRadialLabels={false}
-      slicesLabelsSkipAngle={10}
-      slicesLabelsTextColor="#333333"
-      animate={true}
-      sliceLabel={node => node.value + " %"}
-      motionStiffness={90}
-      motionDamping={15}
-      legends={legends}
-    />
+    <div style={{ height: 250, margin: 20 }}>
+      <ResponsivePie
+        data={chartData}
+        margin={{
+          top: 20,
+          right: 20,
+          bottom: 20,
+          left: 20
+        }}
+        innerRadius={0.4}
+        padAngle={0.7}
+        cornerRadius={3}
+        colors="nivo"
+        colorBy="id"
+        borderWidth={1}
+        borderColor="inherit:darker(0.2)"
+        enableSlicesLabels={false}
+        enableRadialLabels={true}
+        animate={true}
+        tooltip={node => node.id + "(" + node.value + " %)"}
+        radialLabel={node => node.id + "(" + node.value + " %)"}
+        motionStiffness={90}
+        motionDamping={15}
+        radialLabelsLinkHorizontalLength={5}
+      />
+    </div>
   );
 };

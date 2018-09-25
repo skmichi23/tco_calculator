@@ -1,28 +1,28 @@
 export const cars = [
-  { name: "Peugeot Boxer", price: 16200 },
-  { name: "Renault Master", price: 15800 },
-  { name: "Citroen Jumper", price: 16000 },
-  { name: "Mercedes Sprinter", price: 21200 },
-  { name: "Ford Transit", price: 18900 },
-  { name: "Fiat Ducato", price: 17200 },
-  { name: "Iveco Daily", price: 20400 },
-  { name: "Opel Movano", price: 18100 }
+  { name: "Peugeot Boxer", price: 16200, id: "peugeot_boxer" },
+  { name: "Renault Master", price: 15800, id: "renault_master" },
+  { name: "Citroen Jumper", price: 16000, id: "citroen_jumper" },
+  { name: "Mercedes Sprinter", price: 21200, id: "mercedes_sprinter" },
+  { name: "Ford Transit", price: 18900, id: "ford_transit" },
+  { name: "Fiat Ducato", price: 17200, id: "fiat_ducato" },
+  { name: "Iveco Daily", price: 20400, id: "iveco_daily" },
+  { name: "Opel Movano", price: 18100, id: "opel_movano" }
 ];
 
 export const questions = [
   {
     id: "car",
-    text: "What is the car you are using",
-    type: "select",
+    text: "What is the car you are using?",
+    type: "selectWithImg",
     config: {
-      options: cars.map(car => ({ title: car.name, value: car.name }))
+      options: cars.map(car => ({ title: car.name, value: car.id }))
     },
     onAnswer: value => ({
-      car: getCarByName(value).name,
-      price: parseInt(getCarByName(value).price),
-      insurance: Math.round(getCarByName(value).price * 0.035)
+      car: getCarById(value).id,
+      price: parseInt(getCarById(value).price),
+      insurance: Math.round(getCarById(value).price * 0.035)
     }),
-    defaultValue: "Peugeot Boxer"
+    defaultValue: "citroen_jumper"
   },
   {
     id: "price",
@@ -31,8 +31,7 @@ export const questions = [
     config: {
       min: 10000,
       max: 30000,
-      step: 1000,
-      marks: { "1000": "1000", "2000": "2000", "3000": "3000" },
+      step: 100,
       unit: "€"
     },
     defaultValue: 16200,
@@ -71,8 +70,8 @@ export const questions = [
     type: "select",
     config: {
       options: [
-        { title: "Diesel", value: "diesel" },
-        { title: "Petrol", value: "petrol" }
+        { title: "Diesel", value: "diesel", number: "A." },
+        { title: "Petrol", value: "petrol", number: "B." }
       ]
     },
     defaultValue: "diesel"
@@ -107,17 +106,33 @@ export const questions = [
   {
     id: "subsidy",
     text: "Government subsidy?",
-    type: "input",
+    type: "slider",
+    config: {
+      min: 0,
+      max: 15000,
+      step: 100,
+      unit: "€"
+    },
     defaultValue: 7000
   },
   {
     id: "electricity",
     text: "Price for 1kWh of electricity",
-    type: "input",
+    type: "slider",
+    config: {
+      min: 0,
+      max: 0.6,
+      step: 0.01,
+      unit: "€"
+    },
     defaultValue: 0.12
   }
 ];
 
 function getCarByName(name) {
   return cars.filter(car => car.name === name)[0];
+}
+
+function getCarById(id) {
+  return cars.filter(car => car.id === id)[0];
 }

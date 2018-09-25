@@ -7,8 +7,17 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/lab/Slider";
 import Grid from "@material-ui/core/Grid";
+import SliderInput from "./inputs/SliderInput";
+import SelectWithImage from "./inputs/SelectWithImage";
+import ChooseInput from "./inputs/ChooseInput";
 
-export default ({ question, onAnswer, onSliderChange, value }) => {
+export default ({
+  question,
+  onAnswer,
+  onSliderChange,
+  onItemSelect,
+  value
+}) => {
   return (
     <div>
       {(() => {
@@ -36,7 +45,23 @@ export default ({ question, onAnswer, onSliderChange, value }) => {
               </Grid>
               // </Card>
             );
+          case "selectWithImg":
+            return (
+              <SelectWithImage
+                question={question}
+                value={value}
+                onAnswer={onAnswer}
+              />
+            );
           case "select":
+            return (
+              <ChooseInput
+                question={question}
+                value={value}
+                onItemSelect={onItemSelect}
+              />
+            );
+          case "select2":
             return (
               // <Card>
               <Grid container>
@@ -60,6 +85,14 @@ export default ({ question, onAnswer, onSliderChange, value }) => {
               // </Card>
             );
           case "slider":
+            return (
+              <SliderInput
+                question={question}
+                onSliderChange={onSliderChange}
+                value={value}
+              />
+            );
+          case "slider2":
             return (
               // <Card>
               <Grid container>
