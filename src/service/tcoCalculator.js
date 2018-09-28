@@ -329,6 +329,7 @@ export default ({
   const convPerKm = roundTo(convTotal / (mileage * period), 2);
   const evPerKm = roundTo(evTotal / (mileage * period), 2);
   const savings = roundTo(1 - 1 / (convPerKm / evPerKm), 2) * 100;
+  const totalSavings = convTotal - evTotal;
   const trees = ((mileage * period * 250) / 1000000) * 6;
 
   const evTotalWithSubsidy = evTotal + subsidy * 2;
@@ -366,6 +367,7 @@ export default ({
     operationPeriod: period,
     totalKm: period * mileage,
     savings: savings,
+    totalSavings: totalSavings,
     treesSaved: trees,
     comparison: {
       depreciation: [convDepreciation, evDepreciation],

@@ -20,8 +20,18 @@ const CustomTableCell = withStyles(theme => ({
 }))(TableCell);
 
 const styles = theme => ({
-  imgCol: { width: "32%" },
-  imgColInvisi: { width: "35%" },
+  imgCol: {
+    width: "32%",
+    [theme.breakpoints.down("xs")]: {
+      width: "50%"
+    }
+  },
+  imgColInvisi: {
+    width: "35%",
+    [theme.breakpoints.down("xs")]: {
+      width: 0
+    }
+  },
   root: {
     width: "100%",
     marginTop: theme.spacing.unit * 3,
@@ -65,8 +75,14 @@ const styles = theme => ({
   },
   imgPaper: {
     textAlign: "center",
-    marginLeft: 10,
-    height: 180
+    marginLeft: 10
+  },
+  carImg: {
+    height: "100%",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      backgroundColor: "red"
+    }
   }
 });
 
@@ -133,8 +149,8 @@ function ResultsTable(props) {
             <td className={classes.imgCol}>
               <Paper className={classes.imgPaper}>
                 <img
+                  className={classes.carImg}
                   alt=""
-                  style={{ height: "100%" }}
                   src={"./images/cars/" + data.car + ".jpg"}
                 />
               </Paper>
@@ -142,8 +158,8 @@ function ResultsTable(props) {
             <td className={classes.imgCol}>
               <Paper className={classes.imgPaper}>
                 <img
+                  className={classes.carImg}
                   alt=""
-                  style={{ height: "100%" }}
                   src="./images/cars/voltia.jpg"
                 />
               </Paper>

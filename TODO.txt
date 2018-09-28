@@ -8,9 +8,22 @@ TODO:
 
 
 
+
+
 DONE:
 - zobrazenie vybraneho auta v popise tabulky
 - fixnut aby pri vela km x rokoch nepadol vypocet
 - stav odpovedi dostat do App aby prezil aj skrytie komponentu
 - bug ked je insurance 100%
+- min. hodnota vo formulari  "What is your car opertaion period" nastavit na 4 Years - default hodnotu nastavit na 5 Years
+- default value na "Government subsidy" zmenit zo 7000 EUR na 6000 EUR
+- vo formulari zmenit minimalnu hodnotu spotreby zo 4 litrov na 8 litrov
+- v casti report, zmenit nazov "REPORT" na "COMPARISON TO VOLTIA MAXI"
+- v reporte cast nadpisu - TOTAL COST OF OWNERSHIP - daj prec pls , toto ja dam ako nadpis na tu stranku v ktorej bude vlozene to JSko
+
+- v casti report, ked je stranka zuzena na mobile nech su obe auta vedla seba a viditelne, tzn. zmensit obrazky tak aby sa zmestili obe na sirku
+- v casti report dole aj grafy velda seba - sice to bude velmi male, ale bude to indikovat, ze uzivatel ma otocit telefon nasirku, a tym padom sa to zobrazi citatelne, tak ako je to citatelne aj v desktop verzii
+- grafy v reporte pouzit zelenu paletu 'yellow_green' (v prilohe posielam obrazok aj code a data)
+- vypocitat rozdiel totalov pre vybrane auto minus Voltia a toto zobrazit v casti TOTAL SAVINGS OVER WHOLTIME OPERATION
+- pridat vysacku EUR, v prilohe je eur-gag.png (pozri prilozeny graficky navrh)
 

@@ -57,7 +57,7 @@ export const questions = [
     text: "What is your car operation period?",
     type: "slider",
     config: {
-      min: 1,
+      min: 4,
       max: 10,
       step: 1,
       unit: "years"
@@ -81,7 +81,7 @@ export const questions = [
     text: "Average fuel consumption",
     type: "slider",
     config: {
-      min: 4,
+      min: 8,
       max: 20,
       step: 0.1,
       unit: "l/100km"
@@ -113,7 +113,7 @@ export const questions = [
       step: 100,
       unit: "€"
     },
-    defaultValue: 7000
+    defaultValue: 6000
   },
   {
     id: "electricity",
