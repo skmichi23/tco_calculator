@@ -4,7 +4,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-#root h1 {
+#tco_calculator_root h1 {
   text-align: center;
   font-size: 50px;
   font-weight: 900;
@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-#root h2 {
+#tco_calculator_root h2 {
   margin-top: 10px;
   text-align: center;
   font-size: 26px;
@@ -26,14 +26,14 @@
 }
 
 /** question table **/
-table.question {
+#tco_calculator_root table.question {
   border: 1px solid #dedfe0;
   border-radius: 3px;
   width: 100%;
   margin: 20px 0;
 }
 
-table.question th {
+#tco_calculator_root table.question th {
   background-color: #f6f7f8;
   border-bottom: 1px solid #dedfe0;
   padding: 10px 30px;
@@ -43,7 +43,7 @@ table.question th {
   color: #323334;
 }
 
-table.question td.left {
+#tco_calculator_root table.question td.left {
   padding-top: 10px;
   padding-left: 20px;
   width: 33%;
@@ -51,7 +51,7 @@ table.question td.left {
   color: #323334;
 }
 
-table.question td.center {
+#tco_calculator_root table.question td.center {
   padding-top: 10px;
   width: 33%;
   text-align: center;
@@ -59,7 +59,7 @@ table.question td.center {
   color: #7fb14f;
 }
 
-table.question td.right {
+#tco_calculator_root table.question td.right {
   padding-top: 10px;
   padding-right: 20px;
   width: 33%;
@@ -68,24 +68,24 @@ table.question td.right {
 }
 
 /** slider **/
-.slider-wrapper {
+#tco_calculator_root .slider-wrapper {
   margin: 20px;
 }
 
 /** stepper **/
-.stepper-wrapper {
+#tco_calculator_root .stepper-wrapper {
   max-width: 400px;
   margin: 20px auto;
   display: flex;
   justify-content: center;
 }
 
-.stepper {
+#tco_calculator_root .stepper {
   width: 50%;
   margin: 20px;
 }
 
-.stepper-button {
+#tco_calculator_root .stepper-button {
   margin-top: 5px;
   width: 45px;
   height: 45px;
@@ -96,22 +96,22 @@ table.question td.right {
   background-color: #7fb14f;
 }
 
-.stepper-button-icon {
+#tco_calculator_root .stepper-button-icon {
   color: white;
 }
 
 /** select with img **/
-img.select-image {
+#tco_calculator_root img.select-image {
   margin: 10px;
   max-width: 300px;
 }
 
 /** choose **/
-ol.choose {
+#tco_calculator_root ol.choose {
   margin: 0;
   padding: 0;
 }
-ol.choose li {
+#tco_calculator_root ol.choose li {
   border: 0;
   border-bottom: 1px solid #dedfe0;
   display: block;
@@ -120,30 +120,30 @@ ol.choose li {
   position: relative;
 }
 
-ol.choose li span.letter {
+#tco_calculator_root ol.choose li span.letter {
   color: #7c7d7e;
   margin-right: 5px;
 }
 
-ol.choose li.chosen span.letter {
+#tco_calculator_root ol.choose li.chosen span.letter {
   color: white;
 }
 
-ol.choose li.chosen {
+#tco_calculator_root ol.choose li.chosen {
   background-color: #7fb14f;
   color: white;
 }
 
-ol.choose li p {
+#tco_calculator_root ol.choose li p {
   padding: 20px;
   margin: 0;
 }
 
-ol.choose li:last-child {
+#tco_calculator_root ol.choose li:last-child {
   border: 0;
 }
 
-.choose-checked {
+#tco_calculator_root .choose-checked {
   font-size: 30px;
   color: white;
   position: absolute;
@@ -152,7 +152,7 @@ ol.choose li:last-child {
 }
 
 /** calculate button **/
-button.calculate {
+#tco_calculator_root button.calculate {
   width: 100%;
   height: 50px;
   border-radius: 3px;
@@ -163,27 +163,27 @@ button.calculate {
   outline: none;
 }
 
-button.calculate:hover {
+#tco_calculator_root button.calculate:hover {
   cursor: pointer;
 }
 
 /** slider **/
-.my-slider .rc-slider-handle:focus {
+#tco_calculator_root .my-slider .rc-slider-handle:focus {
   border-color: #7fb14f;
   -webkit-box-shadow: 0 0 0 5px #7fb14f;
   box-shadow: 0 0 0 5px #7fb14f;
   outline: none;
 }
 
-.my-slider .rc-slider-handle-click-focused:focus {
+#tco_calculator_root .my-slider .rc-slider-handle-click-focused:focus {
   border-color: #7fb14f;
   box-shadow: unset;
 }
 
-.my-slider .rc-slider-handle:hover {
+#tco_calculator_root .my-slider .rc-slider-handle:hover {
   border-color: #7fb14f;
 }
-.my-slider .rc-slider-handle:active {
+#tco_calculator_root .my-slider .rc-slider-handle:active {
   border-color: #7fb14f;
   box-shadow: 0 0 5px #7fb14f;
   cursor: -webkit-grabbing;

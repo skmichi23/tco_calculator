@@ -151,7 +151,12 @@ function ResultsTable(props) {
                 <img
                   className={classes.carImg}
                   alt=""
-                  src={"./images/cars/" + data.car + ".jpg"}
+                  src={
+                    process.env.REACT_APP_IMG_PATH +
+                    "/cars/" +
+                    data.car +
+                    ".jpg"
+                  }
                 />
               </Paper>
             </td>
@@ -160,7 +165,7 @@ function ResultsTable(props) {
                 <img
                   className={classes.carImg}
                   alt=""
-                  src="./images/cars/voltia.jpg"
+                  src={process.env.REACT_APP_IMG_PATH + "/cars/voltia.jpg"}
                 />
               </Paper>
             </td>

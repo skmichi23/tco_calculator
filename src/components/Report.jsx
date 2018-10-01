@@ -58,7 +58,9 @@ class Report extends React.Component {
                     <img
                       alt=""
                       className={classes.percTag}
-                      src="./images/other/percenta.svg"
+                      src={
+                        process.env.REACT_APP_IMG_PATH + "/other/percenta.svg"
+                      }
                     />
                   </div>
                 </Grid>
@@ -75,7 +77,9 @@ class Report extends React.Component {
                     <img
                       alt=""
                       className={classes.percTag}
-                      src="./images/other/eur-tag.png"
+                      src={
+                        process.env.REACT_APP_IMG_PATH + "/other/eur-tag.png"
+                      }
                     />
                   </div>
                 </Grid>
@@ -86,7 +90,10 @@ class Report extends React.Component {
                 {report.treesSaved} trees saved
               </p>
               <div>
-                <img alt="" src="./images/other/stromceky.png" />
+                <img
+                  alt=""
+                  src={process.env.REACT_APP_IMG_PATH + "/other/stromceky.png"}
+                />
               </div>
             </Grid>
           </Grid>

@@ -58,7 +58,9 @@ function SelectWithImage({ classes, value, onAnswer, question }) {
                   <img
                     alt=""
                     className="select-image"
-                    src={"./images/cars/" + value + ".jpg"}
+                    src={
+                      process.env.REACT_APP_IMG_PATH + "/cars/" + value + ".jpg"
+                    }
                   />
                 </Paper>
               </Grid>

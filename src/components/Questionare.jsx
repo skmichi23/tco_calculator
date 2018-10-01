@@ -6,9 +6,7 @@ export default class Questionare extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>TOTAL COST OF OWNERSHIP</h1>
         <h2>CALCULATOR</h2>
-
         {this.props.questions.map(question => (
           <div key={question.id}>
             <Question
