@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import ResultChart from "./ResultChart";
 import ModifyButton from "./inputs/ModifyButton";
 import NumberFormat from "react-number-format";
+import Hidden from "@material-ui/core/Hidden";
 
 const styles = theme => ({
   resultHeader: {
@@ -98,14 +99,29 @@ class Report extends React.Component {
             </Grid>
           </Grid>
         </Paper>
-        <Grid container>
-          <Grid item xs={6} md={6}>
-            <ResultChart data={report} dataIndex={0} showLegend={false} />
+        <Hidden only="xs">
+          <Grid container>
+            <Grid item xs={0} md={6}>
+              <ResultChart data={report} dataIndex={0} showLegend={false} />
+            </Grid>
+            <Grid item xs={0} md={6}>
+              <ResultChart data={report} dataIndex={1} showLegend={false} />
+            </Grid>
           </Grid>
-          <Grid item xs={6} md={6}>
-            <ResultChart data={report} dataIndex={1} showLegend={false} />
+        </Hidden>
+        <Hidden only={["sm", "md", "lg", "xl"]}>
+          <Grid container>
+            <Grid item xs={6}>
+              <ResultChart data={report} dataIndex={0} size="small" />
+            </Grid>
+            <Grid item xs={6}>
+              <ResultChart data={report} dataIndex={1} size="small" />
+            </Grid>
           </Grid>
-        </Grid>
+          <div>
+            <ResultChart data={report} legendOnly={true} />
+          </div>
+        </Hidden>
         <ModifyButton onClick={onModify} />
       </React.Fragment>
     );

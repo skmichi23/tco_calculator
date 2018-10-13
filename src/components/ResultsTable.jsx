@@ -292,6 +292,7 @@ function ResultsTable(props) {
                     thousandSeparator={" "}
                     suffix={" €"}
                     decimalSeparator={","}
+                    fixedDecimalScale={2}
                   />
                 </p>
               </CustomTableCell>
@@ -305,6 +306,8 @@ function ResultsTable(props) {
                     thousandSeparator={" "}
                     suffix={" €"}
                     decimalSeparator={","}
+                    decimalScale={2}
+                    fixedDecimalScale={true}
                   />
                 </p>
               </CustomTableCell>
