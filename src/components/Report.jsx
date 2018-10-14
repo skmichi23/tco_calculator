@@ -18,7 +18,7 @@ const styles = theme => ({
     margin: "20px 30px 60px 30px",
     textAlign: "center",
     background: "#72b33c",
-    minWidth: 150,
+    minWidth: 220,
     padding: "5px 20px",
     fontSize: 30,
     color: "white",
@@ -55,7 +55,14 @@ class Report extends React.Component {
               <Grid container>
                 <Grid item xs={12} md={6}>
                   <div className={classes.savings}>
-                    -{report.savings}%
+                    <NumberFormat
+                      value={-report.savings}
+                      displayType={"text"}
+                      thousandSeparator={" "}
+                      suffix={" %"}
+                      decimalSeparator={","}
+                      decimalScale={0}
+                    />
                     <img
                       alt=""
                       className={classes.percTag}
@@ -88,7 +95,12 @@ class Report extends React.Component {
             </Grid>
             <Grid item>
               <p className={classes.resultHeader}>
-                {report.treesSaved} trees saved
+                <NumberFormat
+                  value={report.treesSaved}
+                  displayType={"text"}
+                  suffix={" trees saved"}
+                  decimalScale={0}
+                />
               </p>
               <div>
                 <img
@@ -101,10 +113,10 @@ class Report extends React.Component {
         </Paper>
         <Hidden only="xs">
           <Grid container>
-            <Grid item xs={0} md={6}>
+            <Grid item sm={6}>
               <ResultChart data={report} dataIndex={0} showLegend={false} />
             </Grid>
-            <Grid item xs={0} md={6}>
+            <Grid item sm={6}>
               <ResultChart data={report} dataIndex={1} showLegend={false} />
             </Grid>
           </Grid>
