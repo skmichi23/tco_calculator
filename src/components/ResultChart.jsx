@@ -124,12 +124,14 @@ export default ({ data, dataIndex, legendOnly = false, size = "normal" }) => {
             innerRadius={0.4}
             padAngle={0.7}
             cornerRadius={3}
+            slicesLabelsSkipAngle={10}
             colors="yellow_green"
             colorBy="id"
             borderWidth={1}
             borderColor="inherit:darker(0.2)"
-            enableSlicesLabels={false}
+            enableSlicesLabels={true}
             enableRadialLabels={false}
+            sliceLabel={node => node.value + " %"}
             animate={false}
             defs={[
               {
@@ -181,6 +183,7 @@ export default ({ data, dataIndex, legendOnly = false, size = "normal" }) => {
             borderWidth={1}
             borderColor="inherit:darker(0.2)"
             enableSlicesLabels={false}
+            slicesLabelsSkipAngle={6}
             enableRadialLabels={true}
             animate={true}
             tooltip={node => node.id + "(" + node.value + " %)"}

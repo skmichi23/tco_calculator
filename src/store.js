@@ -1,53 +1,13 @@
-export const cars = [
+export var cars = [
   {
     name: "Peugeot Boxer",
     price: 16200,
     id: "peugeot_boxer",
     img: "Peugeot%20Boxer.jpg"
-  },
-  {
-    name: "Renault Master",
-    price: 15800,
-    id: "renault_master",
-    img: "Renault%20Master.jpg"
-  },
-  {
-    name: "Citroen Jumper",
-    price: 16000,
-    id: "citroen_jumper",
-    img: "Citroen%20Jumper.jpg"
-  },
-  {
-    name: "Mercedes Sprinter",
-    price: 21200,
-    id: "mercedes_sprinter",
-    img: "Mercedes%20Sprinter.jpg"
-  },
-  {
-    name: "Ford Transit",
-    price: 18900,
-    id: "ford_transit",
-    img: "Ford%20Transit.jpg"
-  },
-  {
-    name: "Fiat Ducato",
-    price: 17200,
-    id: "fiat_ducato",
-    img: "Fiat%20Ducato.jpg"
-  },
-  {
-    name: "Iveco Daily",
-    price: 20400,
-    id: "iveco_daily",
-    img: "Iveco%20Daily.jpg"
-  },
-  {
-    name: "Opel Movano",
-    price: 18100,
-    id: "opel_movano",
-    img: "Opel%20Movano.jpg"
   }
 ];
+
+export const initCars = () => {};
 
 export const questions = [
   {

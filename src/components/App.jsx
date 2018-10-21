@@ -28,13 +28,11 @@ export default class extends React.Component {
     this.state = initState();
   }
 
+  componentDidMount = () => {
+    console.log("component did mount");
+  };
+
   onQuestionareSubmit = () => {
-    //send answers to service
-    //get response with TCO data
-    //set response data to the state
-
-    console.log(this.state.answers);
-
     const report = tcoCalculator(this.state.answers);
     this.setState({ report });
   };

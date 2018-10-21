@@ -39,7 +39,7 @@ const styles = theme => ({
     fontFamily: "Roboto"
   },
   table: {
-    minWidth: 700,
+    minWidth: 600,
     tableLayout: "fixed"
   },
   row: {

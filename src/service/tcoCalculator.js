@@ -328,8 +328,8 @@ export default ({
     subsidy;
   const convPerKm = roundTo(convTotal / (mileage * period), 2);
   const evPerKm = roundTo(evTotal / (mileage * period), 2);
-  const savings = roundTo(1 - 1 / (convPerKm / evPerKm), 2) * 100;
-  const totalSavings = convTotal - evTotal;
+  const savings = Math.max(0, roundTo(1 - 1 / (convPerKm / evPerKm), 2) * 100);
+  const totalSavings = Math.max(0, convTotal - evTotal);
   const trees = ((mileage * period * 250) / 1000000) * 6;
 
   const evTotalWithSubsidy = evTotal + subsidy * 2;
