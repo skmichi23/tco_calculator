@@ -1,8 +1,8 @@
 import React from "react";
 import Questionare from "./Questionare.jsx";
 import Report from "./Report.jsx";
-import tcoCalculator from "../service/tcoCalculator";
-import { questions } from "../store";
+import tcoCalculator from "../service/TcoCalculatorClass";
+import { observer } from "mobx-react";
 
 import "rc-slider/assets/index.css";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
@@ -14,78 +14,79 @@ const theme = createMuiTheme({
   }
 });
 
-function initState() {
-  const initialState = { answers: {} };
-  for (let question of questions) {
-    initialState.answers[question.id] = question.defaultValue || "";
-  }
-  return initialState;
-}
-
-export default class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = initState();
-  }
-
-  componentDidMount = () => {
-    console.log("component did mount");
-  };
-
-  onQuestionareSubmit = () => {
-    const report = tcoCalculator(this.state.answers);
-    this.setState({ report });
-  };
-
-  onModify = () => {
-    this.setState({ report: null });
-    window.scrollTo(0, 0);
-  };
-
-  onItemSelect = question => value => {
-    let updatedState = { [question.id]: value };
-    this.setState({ answers: { ...this.state.answers, ...updatedState } });
-  };
-
-  onAnswer = question => event => {
-    let updatedState;
-    if (question.onAnswer) {
-      updatedState = question.onAnswer(event.target.value);
-      console.log(updatedState);
-    } else {
-      updatedState = { [question.id]: event.target.value };
-    }
-    this.setState({ answers: { ...this.state.answers, ...updatedState } });
-  };
-
-  onSliderChange = question => value => {
-    let updatedState;
-    if (question.onAnswer) {
-      updatedState = question.onAnswer(value);
-    } else {
-      updatedState = { [question.id]: value };
+const MyApp = observer(
+  class App extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = this.initState();
     }
 
-    this.setState({ answers: { ...this.state.answers, ...updatedState } });
-  };
+    initState() {
+      const initialState = { answers: {} };
+      // for (let question of tcoCalculator.questions) {
+      //   initialState.answers[question.id] = question.defaultValue || "";
+      // }
+      return initialState;
+    }
 
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        {!this.state.report ? (
-          <Questionare
-            onSubmit={this.onQuestionareSubmit}
-            onAnswer={this.onAnswer}
-            onSliderChange={this.onSliderChange}
-            onItemSelect={this.onItemSelect}
-            answers={this.state.answers}
-            questions={questions}
-          />
-        ) : null}
-        {this.state.report ? (
-          <Report report={this.state.report} onModify={this.onModify} />
-        ) : null}
-      </MuiThemeProvider>
-    );
+    onQuestionareSubmit = () => {
+      const report = tcoCalculator.calculateTco(tcoCalculator.answers);
+      this.setState({ report });
+    };
+
+    onModify = () => {
+      this.setState({ report: null });
+      window.scrollTo(0, 0);
+    };
+
+    onItemSelect = question => value => {
+      let updatedState = { [question.id]: value };
+      tcoCalculator.setAnswer(updatedState);
+    };
+
+    onAnswer = question => event => {
+      let updatedState;
+      if (question.onAnswer) {
+        updatedState = question.onAnswer(event.target.value);
+      } else {
+        updatedState = { [question.id]: event.target.value };
+      }
+      tcoCalculator.setAnswer(updatedState);
+      //this.setState({ answers: { ...this.state.answers, ...updatedState } });
+    };
+
+    onSliderChange = question => value => {
+      let updatedState;
+      if (question.onAnswer) {
+        updatedState = question.onAnswer(value);
+      } else {
+        updatedState = { [question.id]: value };
+      }
+
+      //this.setState({ answers: { ...this.state.answers, ...updatedState } });
+      tcoCalculator.setAnswer(updatedState);
+    };
+
+    render() {
+      return (
+        <MuiThemeProvider theme={theme}>
+          {!this.state.report ? (
+            <Questionare
+              onSubmit={this.onQuestionareSubmit}
+              onAnswer={this.onAnswer}
+              onSliderChange={this.onSliderChange}
+              onItemSelect={this.onItemSelect}
+              answers={tcoCalculator.answers}
+              questions={tcoCalculator.questions}
+            />
+          ) : null}
+          {this.state.report ? (
+            <Report report={this.state.report} onModify={this.onModify} />
+          ) : null}
+        </MuiThemeProvider>
+      );
+    }
   }
-}
+);
+
+export default MyApp;
